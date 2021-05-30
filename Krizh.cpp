@@ -3,13 +3,13 @@
 
 int find_max(int* how_many_people_who_have_less)
 {
-    int i,maxx=how_many_people_who_have_less[1],index=1;
+    int i, maxx = how_many_people_who_have_less[1], index = 1;
 
-    for(i=1;i<=101;i++)
-        if(how_many_people_who_have_less[i]>maxx)
+    for(i = 1; i <= 101; ++i)
+        if(how_many_people_who_have_less[i] > maxx)
         {
-           maxx=how_many_people_who_have_less[i];
-           index=i;
+           maxx = how_many_people_who_have_less[i];
+           index = i;
         }
 
     return index;
@@ -19,7 +19,7 @@ int find_man(int* answer, int k, int N)
 {
     int i;
 
-    for(i = 0; i < N; i++)
+    for(i = 0; i < N; ++i)
         if (answer[i] == k) return i;
 }
 
@@ -27,8 +27,8 @@ int hm_people_more(int* score, int N)
 {
     int i, k = 0;
 
-    for(i=0; i < N - 1 ; i++)
-        if(score[i] < score[N-1]) k++;
+    for (i = 0; i < N - 1 ; ++i)
+        if (score[i] < score[N-1]) k++;
 
     return k;
 }
@@ -37,8 +37,8 @@ int who_is_the_winner(int* numbers)
 {
     int i;
 
-    for(i = 1; i <= 101; i++)
-        if(numbers[i] == 1) return i;
+    for (i = 1; i <= 101; i++)
+        if (numbers[i] == 1) return i;
 
     return -1;
 }
@@ -81,7 +81,7 @@ void my_sort(int* numbers, int* answer, int N)
 {
     int i;
 
-    for(i=0; i < N - 1; i++)
+    for(i=0; i < N - 1; ++i)
         numbers[answer[i]]++;
 }
 
@@ -89,19 +89,21 @@ void init(int* score, int* answer, int* numbers, int N)
 {
     int i;
 
-    for(i=0; i < N; i++)
+    for(i = 0; i < N; i++)
         scanf("%d",&score[i]);
-    for(i=0; i < N - 1; i++)
+	
+    for(i = 0; i < N - 1; i++)
         scanf("%d",&answer[i]);
 
     for(i = 1; i <= 101; i++)
-        numbers[i]=0;
+        numbers[i] = 0;
 }
 
 int main(void)
 {
-	int N,answ;
-	int *score, *answer, *numbers, *how_many_people_who_have_less;
+	
+    int N,answ;
+    int *score, *answer, *numbers, *how_many_people_who_have_less;
 
     scanf("%d",&N);
 
@@ -117,5 +119,5 @@ int main(void)
 
     printf("%d",answ);
 
-	return 0;
+    return 0;
 }
